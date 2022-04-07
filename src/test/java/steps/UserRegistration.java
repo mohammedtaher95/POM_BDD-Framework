@@ -5,16 +5,19 @@ import org.testng.Assert;
 import pages.HomePage;
 import pages.UserRegistrationPage;
 import tests.TestBase;
+import tests.UserFormData;
 
 public class UserRegistration extends TestBase {
 
     HomePage home;
     UserRegistrationPage register;
+    UserFormData newUser;
 
     @Given("the user in the homepage")
     public void the_user_in_the_homepage() {
         // Write code here that turns the phrase above into concrete actions
         home = new HomePage(driver);
+        newUser = new UserFormData();
         home.openRegistrationPage();
     }
     @When("he clicks on the register link")
@@ -22,18 +25,12 @@ public class UserRegistration extends TestBase {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(driver.getCurrentUrl().contains("register"));
     }
-//    @When("enters his data")
-//    public void enters_his_data() {
-//        // Write code here that turns the phrase above into concrete actions
-//        register = new UserRegistrationPage(driver);
-//        register.userRegistration("Mohammed", "Taher", "test@test.com", "123456");
-//    }
 
-    @When("enters his {string}, {string}, {string}, {string}")
-    public void enters_his(String firstname, String lastname, String email, String password) {
+    @When("enters his firstname, lastname, email, password")
+    public void enters_his_firstname_lastname_email_password() {
         // Write code here that turns the phrase above into concrete actions
         register = new UserRegistrationPage(driver);
-        register.userRegistration(firstname, lastname, email, password);
+        register.userRegistration(newUser.getFirstName(), newUser.getLastName(), newUser.getEmail(), newUser.getPassword());
     }
 
     @Then("the registration page should be displayed successfully")

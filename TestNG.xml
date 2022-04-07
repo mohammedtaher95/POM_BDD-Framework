@@ -5,7 +5,6 @@
     <classes>
       <class name="tests.UserRegistrationTest"/>
       <class name="tests.MyAccountTest"/>
-      <class name="tests.ContactUsTest"/>
       <class name="tests.SearchProductTest"/>
       <class name="tests.SearchProductTestWithAutoSuggest"/>
     </classes>
