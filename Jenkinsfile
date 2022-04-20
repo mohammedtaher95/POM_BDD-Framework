@@ -2,7 +2,7 @@ node {
     def mvnHome
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
-        git 'https://github.com/mohammedtaher95/SeleniumJavaPOMFramework.git'
+        git 'https://github.com/mohammedtaher95/POM_BDD-Framework.git'
         // Get the Maven tool.
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
@@ -32,6 +32,6 @@ node {
         // testng '**/target/surefire-reports/TEST-*.xml'
         // archiveArtifacts 'target/*.jar'
         step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-        
+
     }
 }
